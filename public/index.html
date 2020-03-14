@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/x-icon" href="./img/list.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Todo App</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/7.11.0/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/7.11.0/firebase-auth.js"></script>
+    <script defer src="/__/firebase/7.11.0/firebase-database.js"></script>
+    <script defer src="/__/firebase/7.11.0/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/7.11.0/firebase-storage.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div class="app">
+      <div class="wrapper">
+        <h1 class="wrapper__heading">Todo App</h1>
+        <div class="wrapper__input">
+          <textarea id="input-todo" type="text" class="wrapper__input-text" placeholder="Add a task"></textarea>
+          <button id="btn-add" class="wrapper__input-btn">Add</button>
+        </div>
+        <div class="progress">
+          <div id="progress-percent" class="progress__bar" data-width=''>
+          </div>
+        </div>
+        <div class="wrapper__clear-todo">
+          <span id="clear-todo" class="wrapper__clear-todo-label">Clear task</span>
+        </div>
+        <ul class="wrapper__list" id="todo-list">
+          
+        </ul>
+      </div>
+    </div>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
