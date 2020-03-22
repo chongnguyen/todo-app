@@ -76,11 +76,15 @@ window.addEventListener('load', function(){
 
   function addTodo(event){
     event.preventDefault();
-    if(!input.value) return;
-    const newTodo = {state: false, content: input.value};
-    todoList.push(newTodo);
-    render(todoList);
-    localStorage.setItem('todoList', JSON.stringify(todoList));
+    if(input.value != '\n' && input.value) {
+      const newTodo = {state: false, content: input.value};
+      todoList.push(newTodo);
+      render(todoList);
+      localStorage.setItem('todoList', JSON.stringify(todoList));
+      input.value = '';
+      blurInput();
+    }
+
     input.value = '';
     blurInput();
   }

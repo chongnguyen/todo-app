@@ -132,6 +132,7 @@ html {
 .wrapper__item-content {
   flex: 1;
   margin-right: 10px;
+  word-break: break-word;
 }
 .wrapper__item-close {
   cursor: pointer;
