@@ -15,6 +15,7 @@ html {
   margin: 20px auto 0;
   padding: 30px 20px 10px;
   border-radius: 4px;
+  position: relative;
 }
 .wrapper__heading {
   text-align: center;
@@ -87,6 +88,29 @@ html {
   transform: translate(-50%, -50%);
   color: #fff;
 }
+.alert {
+  position: absolute;
+  z-index: 1;
+  left: 20px;
+  right: 20px;
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  padding: 10px 20px;
+  font-size: 1.6rem;
+  border-radius: 4px;
+  animation: fadeOut cubic-bezier(1,.09,1,.09) 3s forwards;
+  display: none;
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 .wrapper__clear-todo {
   text-align: right;
   font-size: 1.4rem;
@@ -137,6 +161,8 @@ html {
 .wrapper__item-close {
   cursor: pointer;
 }
+
+
 
 @media (max-width: 739px){
   .wrapper__input {

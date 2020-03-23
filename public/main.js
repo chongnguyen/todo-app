@@ -60,6 +60,7 @@ window.addEventListener('load', function(){
     todoList[todo.dataset.id].state = !(todoList[todo.dataset.id].state);
     localStorage.setItem('todoList', JSON.stringify(todoList));
     setLengthProgress();
+    render(todoList);
   }
 
   function removeTodo(event, todo){
@@ -76,13 +77,17 @@ window.addEventListener('load', function(){
 
   function addTodo(event){
     event.preventDefault();
-    if(input.value != '\n' && input.value) {
+    if(input.value.charAt(0) != '\n' && input.value) {
       const newTodo = {state: false, content: input.value};
       todoList.push(newTodo);
       render(todoList);
       localStorage.setItem('todoList', JSON.stringify(todoList));
-      input.value = '';
-      blurInput();
+    } else {
+      let alert = document.getElementsByClassName('alert')[0]
+      alert.style.display = 'block';
+      setTimeout(() => {
+        alert.style.display = 'none';
+      }, 3000);
     }
 
     input.value = '';
@@ -97,6 +102,7 @@ window.addEventListener('load', function(){
   }
 
   function render(arr){
+    arr.sort((a, b) => a.state - b.state);
     let data =  arr.map((item, i) => {
       if(item.state){
         return '<li class="wrapper__item active" data-id=' + i +'>' +
@@ -111,15 +117,10 @@ window.addEventListener('load', function(){
       '</div><i class="fas fa-times wrapper__item-close"></i></li>'; 
       
     });
-
     list.innerHTML = data.join('');
     setLengthProgress();
   }
 
   render(todoList);
-
-  
-
-  
 
 });
