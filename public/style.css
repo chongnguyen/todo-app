@@ -112,7 +112,8 @@ html {
 }
 
 .wrapper__clear-todo {
-  text-align: right;
+  display: flex;
+  justify-content: space-between;
   font-size: 1.4rem;
   margin-bottom: 14px;
 }
