@@ -1,6 +1,7 @@
 window.addEventListener('load', function(){
   // Lấy dữ liệu từ LocalStorage.
   let todoList = JSON.parse(this.localStorage.getItem('todoList')) || [];
+  todoList.sort((a, b) => a.state - b.state); // sắp xếp theo trạng thái task.
   let removeList = JSON.parse(this.sessionStorage.getItem('removeList')) || [];
   
   const list = document.getElementById('todo-list');
@@ -144,7 +145,7 @@ window.addEventListener('load', function(){
   }
 
   function render(arr){
-    arr.sort((a, b) => a.state - b.state); // sắp xếp theo trạng thái task.
+    // arr.sort((a, b) => a.state - b.state); // sắp xếp theo trạng thái task.
 
     let data =  arr.map((item, i) => {
       if(item.state){ // đả check thì thêm class `active`
